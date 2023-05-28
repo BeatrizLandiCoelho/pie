@@ -3,12 +3,15 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 class EmailSender:
+    #create class
     def __init__(self, smtp_server, smtp_port, username, password):
         self.smtp_server = smtp_server
         self.smtp_port = smtp_port
         self.username = username
         self.password = password
 
+
+#send email
     def send_email(self, subject, recipient, body):
         message = MIMEMultipart()
         message['From'] = self.username
@@ -25,4 +28,8 @@ class EmailSender:
                 print("Email enviado com sucesso!")
         except Exception as e:
             print("Erro ao enviar email:", str(e))
+
+
+
+
 

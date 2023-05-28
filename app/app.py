@@ -1,19 +1,38 @@
 #COMANDS
 #python -m venv venv
 #.\venv\Scripts\activate
-import model
+
 #framework
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, request
+#parcial imports
+from controller_sender import cheek_if_email_exist
 
 #instance this baby
 app = Flask(__name__)
 
-@app.route("/a", methods=['GET'])
-def hi_py():
+#________________________________________________________________
+
+@app.route("/v1/emailcheek", methods=['POST'])
+def email_cheker():
+
+    email_requested = request.json['email']
+
+    cheek_if_email_exist(email_requested)
+
     return make_response(
       jsonify(
-        data = "hy py"
+
+        email = email_requested,
+        valid = "a"
+
       )
     )
 
-app.run(debug=True, port=8080)
+#________________________________________________________________
+
+if __name__ == '__main__':
+
+    print("server read to go")
+    app.run(port=8080, debug=True) 
+
+
