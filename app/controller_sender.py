@@ -1,9 +1,15 @@
 from Email import EmailSender
-from model_email_verifier import email_cheker
+from model_email_verifier import email_checker
 
 def cheek_if_email_exist (email):
-    
-    email_cheker(email)
+ 
+  status,email_existence = email_checker(email) 
+  
+  return status,email_existence 
+
+#example
+cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
+
 
 
 #exaple

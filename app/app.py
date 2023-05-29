@@ -17,13 +17,13 @@ def email_cheker():
 
     email_requested = request.json['email']
 
-    cheek_if_email_exist(email_requested)
+    status,email_existence = cheek_if_email_exist(email_requested)
 
     return make_response(
       jsonify(
 
         email = email_requested,
-        valid = "a"
+        validity = email_existence
 
       )
     )
