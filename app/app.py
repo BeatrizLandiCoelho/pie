@@ -22,6 +22,7 @@ def email_cheker():
     return make_response(
       jsonify(
 
+        status = 200,
         email = email_requested,
         validity = email_existence
 

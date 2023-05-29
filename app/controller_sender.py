@@ -1,16 +1,26 @@
 from Email import EmailSender
 from model_email_verifier import email_checker
 
+#_______________________________________________________
+
 def cheek_if_email_exist (email):
  
+  if(
+    email=="" or
+    len(email) < 6 or
+    len(email) > 256 
+    ):
+    status = False
+    return status
+
   status,email_existence = email_checker(email) 
   
   return status,email_existence 
 
 #example
-cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
+#cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
 
-
+#_______________________________________________________
 
 #exaple
 #cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
