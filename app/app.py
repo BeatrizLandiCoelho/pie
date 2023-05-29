@@ -91,6 +91,7 @@ def email_sender():
 if __name__ == '__main__':
 
     print("server read to go")
-    app.run(port=8080, debug=True) 
+    app.run(port=8080) 
 
-
+#pip freeze > "requirements.txt"
+#gunicorn app:app

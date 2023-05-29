@@ -18,7 +18,8 @@ def cheek_if_email_exist (email):
   return status,email_existence 
 
 #example
-#cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
+#print(cheek_if_email_exist("beatriz.landi.coelho@gmail.com"))
+
 
 #_______________________________________________________
 
