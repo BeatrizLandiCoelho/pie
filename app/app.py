@@ -5,7 +5,7 @@
 #framework
 from flask import Flask, jsonify, make_response, request
 #parcial imports
-from controller_sender import cheek_if_email_exist
+from controller_sender import cheek_if_email_exist,send_email_gmail_com
 
 #instance this baby
 app = Flask(__name__)
@@ -16,6 +16,13 @@ app = Flask(__name__)
 def email_cheker():
 
     email_requested = request.json['email']
+
+    if(email_requested ==''):
+        return make_response(
+            jsonify(
+              status=400
+            )
+            )
 
     status,email_existence = cheek_if_email_exist(email_requested)
 
@@ -30,6 +37,34 @@ def email_cheker():
     )
 
 #________________________________________________________________
+
+
+@app.route("/v2/emailsend", methods=['POST'])
+def email_sender():
+      
+
+      tittle_email = request.json['title']
+      user_email = request.json['email']
+      body_email = request.json['body']
+
+      send_email_gmail_com(tittle_email,user_email,body_email)
+
+      return make_response(
+      jsonify(
+
+        tittle=tittle_email,
+        body= body_email,
+        to=user_email,
+        status = 200
+  
+      )
+    )
+  
+  
+    
+
+#________________________________________________________________
+
 
 if __name__ == '__main__':
 

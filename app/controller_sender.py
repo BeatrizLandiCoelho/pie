@@ -22,17 +22,13 @@ def cheek_if_email_exist (email):
 
 #_______________________________________________________
 
-#exaple
-#cheek_if_email_exist("beatriz.landi.coelho@gmail.com")
+def send_email_gmail_com(email_title,user_email, body_email):
+    company_email = "emailtesteremailtester123@gmail.com"
+    company_email_key = "wykxeptrluwazmvr"
 
+    # Instanciar a classe EmailSender
+    email_sender = EmailSender('smtp.gmail.com', 587, 'emailtesteremailtester123@gmail.com', 'wykxeptrluwazmvr')
 
-# def change_passwords():
-#     company_email = "emailtesteremailtester123@gmail.com"
-#     company_email_key = "wykxeptrluwazmvr"
-
-#     # Instanciar a classe EmailSender
-#     email_sender = EmailSender('smtp.gmail.com', 587, 'emailtesteremailtester123@gmail.com', 'wykxeptrluwazmvr')
-
-#     # Enviar um email
-#     email_sender.send_email('Assunto do Email', 'beatriz.landi.coelho@gmail.com', 'Corpo do email')
+    # Enviar um email
+    email_sender.send_email(email_title, user_email, body_email)
 

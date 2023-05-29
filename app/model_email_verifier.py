@@ -23,6 +23,6 @@ def email_checker(email):
 
 
 #example
-# status,email_existence = email_checker("beatriz.landi.celho@gmail.com")
-# print(status) mostra se a funcao funcionou
-# print(email_existence) mostra se o email existe
+#status,email_existence = email_checker("beatriz.landi.celho@gmail.com")
+#print(status) 
+#print(email_existence) 
